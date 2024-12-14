@@ -1,6 +1,5 @@
 import java.util.*;
 
-
 class Solution {
     private static void merge(int[] arr, int low, int mid, int high) {
         ArrayList<Integer> temp = new ArrayList<>(); // temporary array
