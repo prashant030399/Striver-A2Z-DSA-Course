@@ -1,5 +1,6 @@
 import java.util.*;
 
+
 class practiced {
 
     private static void merge(int arr [], int low, int mid, int high){
