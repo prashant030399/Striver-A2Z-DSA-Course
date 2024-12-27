@@ -24,9 +24,29 @@ if(count > nums.length /2) return nums [i];
 
 return -1;
 
-
-
-
-
     }
 }
+
+
+Better
+
+class Solution {
+    public int majorityElement(int[] nums) {
+
+Map<Integer,Integer> mpp = new HashMap<>();
+
+for(int i=0 ; i<=nums.length -1 ; i++){
+    mpp.put(nums[i], mpp.getOrDefault(nums[i],0) + 1 );
+}
+
+for(Map.Entry<Integer,Integer> e : mpp.entrySet()){
+
+if(e.getValue() > nums.length/2) return e.getKey();
+
+}
+
+return -1 ;
+    }
+}
+
+
