@@ -1,6 +1,7 @@
 import java.util.*;
 
 
+
 class checkarraysortedbrute {
 
     public static int sample(int []a) {
