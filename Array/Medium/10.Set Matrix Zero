@@ -1,11 +1,58 @@
 73. Set Matrix Zeroes
 
 Given an m x n integer matrix matrix, if an element is 0, set its entire row and column to 0's.
-
 You must do it in place.
 
+Brute
+
+class Solution {
+    public void setZeroes(int[][] matrix) {
+      
+int n = matrix.length; // Number of rows
+        int m = matrix[0].length; // Number of columns
+
+        // Mark rows and columns with -1 based on the presence of 0
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if (matrix[i][j] == 0) {
+                    markRow(matrix, n, m, i);
+                    markCol(matrix, n, m, j);
+                }
+            }
+        }
+
+        // Replace all -1s with 0
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if (matrix[i][j] == Integer.MIN_VALUE - 6 ) {
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+    }
+
+    private void markRow(int[][] matrix, int n, int m, int i) {
+        // Set all non-zero elements as -1 in row i
+        for (int j = 0; j < m; j++) {
+            if (matrix[i][j] != 0) {
+                matrix[i][j] = Integer.MIN_VALUE - 6 ;
+            }
+        }
+    }
+
+    private void markCol(int[][] matrix, int n, int m, int j) {
+        // Set all non-zero elements as -1 in column j
+        for (int i = 0; i < n; i++) {
+            if (matrix[i][j] != 0) {
+                matrix[i][j] = Integer.MIN_VALUE - 6 ;
+            }
+        }
+
+    }
+}
 
 
+Better
 
 class Solution {
     public void setZeroes(int[][] matrix) {
