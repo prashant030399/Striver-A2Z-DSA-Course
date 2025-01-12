@@ -10,7 +10,41 @@ You should return the array of nums such that the the array follows the given co
 -- The rearranged array begins with a positive integer.
 Return the modified array after rearranging the elements to satisfy the aforementioned conditions.
 
-Optimal 
+
+
+Brute
+
+class Solution {
+    public int[] rearrangeArray(int[] nums) {
+
+        int n = nums.length ;
+
+ArrayList<Integer> pos=new ArrayList<>();
+  ArrayList<Integer> neg=new ArrayList<>();
+  
+  // Segregate the array into positives and negatives.
+  for(int i=0;i<n;i++){
+      
+      if(nums[i]>0) pos.add(nums[i]);
+      else neg.add(nums[i]);
+  }
+
+
+  for(int i=0;i<n/2;i++){
+      
+      nums[2*i] = pos.get(i);
+      nums[2*i+1] = neg.get(i);
+  }
+
+return nums ;
+
+    }
+}
+
+
+
+Optimal
+
 
 class Solution {
     public int[] rearrangeArray(int[] nums) {
