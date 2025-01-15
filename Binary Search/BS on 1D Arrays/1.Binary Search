@@ -5,6 +5,7 @@ write a function to search target in nums. If target exists, then return its ind
 You must write an algorithm with O(log n) runtime complexity.
 
 
+
 class Solution {
     public int search(int[] nums, int target) {
 
