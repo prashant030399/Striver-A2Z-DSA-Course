@@ -34,3 +34,39 @@ return ans ;
     }
 }
 
+
+Better
+
+
+class Solution {
+    public List<List<Integer>> threeSum(int[] nums) {
+
+Set<List<Integer>> st = new HashSet<>();
+
+for(int i=0 ; i<=nums.length -1 ; i++){
+Map<Integer,Integer> mpp = new HashMap <>();
+
+for(int j=i+1  ; j<=nums.length -1 ; j++){
+
+int moreNeeded = - (nums[i] + nums[j]);
+
+if(mpp.containsKey(moreNeeded)){
+    List<Integer> temp = Arrays.asList(nums[i], nums[j],moreNeeded);
+  temp.sort(null);
+  st.add(temp) ;    
+}
+mpp.put(nums[j],j);
+
+}}
+
+List<List<Integer>> ans = new ArrayList<>(st);
+return ans ; 
+
+    }
+}
+
+
+
+Optimal
+
+
