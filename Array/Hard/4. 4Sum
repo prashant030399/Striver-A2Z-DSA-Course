@@ -1,0 +1,75 @@
+
+
+
+Brute
+
+class Solution {
+    public List<List<Integer>> fourSum(int[] nums, int target) {
+
+Set<List<Integer>> st  = new HashSet<> (); 
+
+for(int i=0; i<=nums.length-1 ;i++){
+for(int j=i+1; j<=nums.length-1 ;j++){
+for(int k=j+1; k<=nums.length-1 ;k++){
+for(int l=k+1; l<=nums.length-1 ;l++){
+if(nums[i] + nums[j] + nums[k] + nums[l] == target){
+    List<Integer> temp = Arrays.asList(nums[i],nums[j],nums[k],nums[l]);
+temp.sort(null);
+st.add(temp);
+} 
+}
+}
+}
+}
+
+List<List<Integer>> ans = new ArrayList<>(st);
+
+return ans ;
+
+
+    }
+}
+
+
+Better
+
+class Solution {
+    public List<List<Integer>> fourSum(int[] nums, int target) {
+
+Set<List<Integer>> st  = new HashSet<> (); 
+
+for(int i=0; i<=nums.length-1 ;i++){
+   
+for(int j=i+1; j<=nums.length -1 ;j++){
+ Set<Long> hs = new HashSet <>();
+for(int k=j+1; k<=nums.length-1 ;k++){
+
+    long sum = nums[i] + nums[j];
+    sum += nums[k];
+
+long moreNeeded = target - sum ;
+
+if(hs.contains(moreNeeded)){
+    List<Integer> temp = new ArrayList <>();
+    \
+                temp.add((int)moreNeeded);
+
+temp.sort(Integer :: compareTo);
+st.add(temp);
+}
+hs.add((long) nums[k]);
+}
+}
+}
+
+List<List<Integer>> ans = new ArrayList<>(st);
+
+return ans ;
+
+    }
+}
+
+
+
+
+
