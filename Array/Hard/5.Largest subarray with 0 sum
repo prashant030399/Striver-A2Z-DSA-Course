@@ -24,3 +24,36 @@ class Solution {
 
 
 
+Better
+
+class Solution {
+    int maxLen(int arr[]) {
+        
+      int sum =0;
+      int maxlen =  0 ;
+      
+      Map<Integer, Integer> mpp = new HashMap<> ();
+      
+      for(int i=0 ; i<=arr.length-1 ; i++){
+          
+          sum += arr[i];
+          
+          if(sum ==0){
+              maxlen = Math.max(maxlen, i+1);
+          }
+          
+          int rem = sum;
+          
+          if(mpp.containsKey(rem)){
+              maxlen = Math.max(maxlen, i- mpp.get(rem));
+          }
+          
+          if(!mpp.containsKey(sum)){
+              mpp.put(sum,i) ;
+          }
+          
+      }
+      return maxlen ;
+        
+            }}
+
