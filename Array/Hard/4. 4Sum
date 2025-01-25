@@ -36,36 +36,35 @@ Better
 class Solution {
     public List<List<Integer>> fourSum(int[] nums, int target) {
 
-Set<List<Integer>> st  = new HashSet<> (); 
+        Set<List<Integer>> st = new HashSet<>();
 
-for(int i=0; i<=nums.length-1 ;i++){
-   
-for(int j=i+1; j<=nums.length -1 ;j++){
- Set<Long> hs = new HashSet <>();
-for(int k=j+1; k<=nums.length-1 ;k++){
+        for (int i = 0; i <= nums.length - 1; i++) {
+            for (int j = i + 1; j <= nums.length - 1; j++) {
+                Set<Long> hs = new HashSet<>();
+                for (int k = j + 1; k <= nums.length - 1; k++) {
+                    long sum = nums[i] + nums[j];
+                    sum += nums[k];
+                    long moreNeeded = target - sum;
 
-    long sum = nums[i] + nums[j];
-    sum += nums[k];
+                    if (hs.contains(moreNeeded)) {
+                        List<Integer> temp = new ArrayList<>();
+                        temp.add(nums[i]);
+                        temp.add(nums[j]);
+                        temp.add(nums[k]);
+                        temp.add((int) moreNeeded);
+                                
+                        Collections.sort(temp);
 
-long moreNeeded = target - sum ;
+                        st.add(temp);
+                    }
+                    hs.add((long) nums[k]);
+                }
+            }
+        }
 
-if(hs.contains(moreNeeded)){
-    List<Integer> temp = new ArrayList <>();
-    \
-                temp.add((int)moreNeeded);
+        List<List<Integer>> ans = new ArrayList<>(st);
 
-temp.sort(Integer :: compareTo);
-st.add(temp);
-}
-hs.add((long) nums[k]);
-}
-}
-}
-
-List<List<Integer>> ans = new ArrayList<>(st);
-
-return ans ;
-
+        return ans;
     }
 }
 
