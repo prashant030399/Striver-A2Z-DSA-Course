@@ -6,6 +6,7 @@ You must write an algorithm with O(log n) runtime complexity.
 
 
 
+
 class Solution {
     public int search(int[] nums, int target) {
 
